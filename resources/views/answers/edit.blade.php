@@ -1,8 +1,9 @@
 @extends('layouts.app')
+
 @section('content')
 
-<div class="row mt-4">
-        <div class="col-md-12">
+<div class="container">
+<div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <h3>Editing answer for question : <strong> {{  $question->title }}</strong></h3>
@@ -26,6 +27,5 @@
                 </div>
             </div>
         </div>
-
-    </div>
-    @endsection
+</div>
+ @endsection
