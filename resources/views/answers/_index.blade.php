@@ -17,7 +17,14 @@
                             <span class="votes-count">1230</span>
                             <a title="This answer is not useful" class="vote-down off">
                                 <i class="fas fa-caret-down fa-3x"></i>
+                            </a> 
+                            @can('accept', $answer)
+                            <a title="Mark this answer as best answer" 
+                            class="{{ $answer->status }} mt-2" onclick="event.preventDefault(); 
+                            document.getElementById('accept-answer-{{$answer->id}}').submit();">
+                                <i class="fas fa-check fa-2x"></i>                                    
                             </a>
+<<<<<<< HEAD
 <<<<<<< HEAD
                             @can('accept',$answer)
                             <a title="Mark this answer as best answer" class="{{ $answer->status }} mt-2"
@@ -39,6 +46,22 @@
                                 <i class="fas fa-check fa-2x"></i>                                    
                             </a>
 >>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
+=======
+                            <form method="POST" action="{{ route('answers.accept',$answer->id)}}" id="accept-answer-{{$answer->id}}" style="display:none;">
+                                @csrf
+                            </form>
+                            @else
+                            @if ($answer->is_best)
+                            <a title="This owner question accepted this answer as best answer" 
+                            class="{{ $answer->status }} mt-2" onclick="event.preventDefault(); 
+                            document.getElementById('accept-answer-{{$answer->id}}').submit();">
+                                <i class="fas fa-check fa-2x"></i>                                    
+                            </a>
+                            @endif
+                            @endcan
+
+                        
+>>>>>>> lesson-20
                         </div>
                         <div class="media-body">
                             {!! $answer->body_html !!}

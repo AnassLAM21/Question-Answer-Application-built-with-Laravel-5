@@ -63,8 +63,14 @@ class Answer extends Model
         return $this->created_at->diffForHumans();
     }
 
+    public function getIsBestAttribute()
+    {
+        return $this->isBest();
+    }
+
     public function getStatusAttribute()
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         return $this->isBest() ? 'vote-accepted' : '';
     }
@@ -80,6 +86,14 @@ class Answer extends Model
     }
 =======
         return $this->id == $this->question->best_answer_id ? 'vote-accepted' : '';
+=======
+        return $this->isBest() ? 'vote-accepted' : '';
+    }
+
+    public function isBest()
+    {
+        return $this->id == $this->question->best_answer_id;
+>>>>>>> lesson-20
     }
 
 >>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
