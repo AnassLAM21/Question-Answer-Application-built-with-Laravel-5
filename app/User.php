@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -28,23 +27,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
     public function questions()
     {
-        return $this->hasmany(Question::class);
-    }
-
+        return $this->hasMany(Question::class);
+    }  
+    
     public function getUrlAttribute()
     {
-        return "#";
+        // return route("questions.show", $this->id);
+        return '#';
     }
 
     public function answers()
@@ -54,11 +45,9 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        $email = $this->email;
-        $size = 40;
+        $email = $this->email;        
+        $size = 32;
+
         return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
     }
-   
-
-
 }
