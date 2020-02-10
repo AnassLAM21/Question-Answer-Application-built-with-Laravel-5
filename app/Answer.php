@@ -6,8 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+<<<<<<< HEAD
     protected $fillable = ['body', 'user_id'];
     
+=======
+
+    protected $fillable = ['body','user_id'];
+
+>>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
     public function question()
     {
         return $this->belongsTo(Question::class);
@@ -25,6 +31,7 @@ class Answer extends Model
     
     public static function boot()
     {
+<<<<<<< HEAD
         parent::boot();
 
         static::created(function ($answer) {
@@ -34,6 +41,21 @@ class Answer extends Model
         static::deleted(function ($answer) {            
             $answer->question->decrement('answers_count');            
         });
+=======
+       parent::boot();
+       static::created(function($answer)
+       {
+          $answer->question->increment('answers_count');
+          $answer->question->save();
+       });
+
+       static::deleted(function($answer)
+       {
+          $answer->question->decrement('answers_count');
+       });
+
+
+>>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
     }
 
     public function getCreatedDateAttribute()
@@ -43,6 +65,7 @@ class Answer extends Model
 
     public function getStatusAttribute()
     {
+<<<<<<< HEAD
         return $this->isBest() ? 'vote-accepted' : '';
     }
 
@@ -55,5 +78,10 @@ class Answer extends Model
     {
         return $this->id === $this->question->best_answer_id;;
     }
+=======
+        return $this->id == $this->question->best_answer_id ? 'vote-accepted' : '';
+    }
+
+>>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
 
 }

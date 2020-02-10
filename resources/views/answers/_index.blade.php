@@ -18,6 +18,7 @@
                             <a title="This answer is not useful" class="vote-down off">
                                 <i class="fas fa-caret-down fa-3x"></i>
                             </a>
+<<<<<<< HEAD
                             @can('accept',$answer)
                             <a title="Mark this answer as best answer" class="{{ $answer->status }} mt-2"
                                 onclick="event.preventDefault();document.getElementById('accept-answer-{{ $answer->id }}').submit();"    >
@@ -33,6 +34,11 @@
                                 </a> 
                                 @endif
                             @endcan
+=======
+                            <a title="Mark this answer as best answer" class="{{ $answer->status }} mt-2">
+                                <i class="fas fa-check fa-2x"></i>                                    
+                            </a>
+>>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
                         </div>
                         <div class="media-body">
                             {!! $answer->body_html !!}
@@ -45,7 +51,11 @@
                                         @can ('delete', $answer)
                                             <form class="form-delete" method="post" action="{{ route('questions.answers.destroy', [$question->id, $answer->id]) }}">
                                                 @method('DELETE')
+<<<<<<< HEAD
                                                 @csrf
+=======
+                                               @csrf
+>>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
                                                 <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                             </form>
                                         @endcan

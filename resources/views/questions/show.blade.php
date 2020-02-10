@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.app') 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -50,10 +49,21 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     @include ('answers._index', [
         'answers' => $question->answers,
         'answersCount' => $question->answers_count,
     ])
     @include ('answers._create')
+=======
+    @include('answers._index',[
+        'answers' => $question->answers,
+         'answersCount' => $question->answers_count,
+     ])
+
+
+     @include('answers._create')
+
+>>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
 </div>
 @endsection
