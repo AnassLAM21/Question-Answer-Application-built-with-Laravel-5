@@ -26,7 +26,7 @@ class AnswersController extends Controller
     public function store(Question $question,Request $request)
 >>>>>>> c7344d8f3ba6e1d1dd332aec07906f847ea73c62
     {
-        $question->answers()->create($request->validate([
+        $answer = $question->answers()->create($request->validate([
             'body' => 'required'
         ]) + ['user_id' => \Auth::id()]);
 

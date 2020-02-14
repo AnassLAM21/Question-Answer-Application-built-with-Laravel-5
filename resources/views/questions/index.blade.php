@@ -22,11 +22,21 @@
                         <div class="media">
                             <div class="d-flex flex-column counters">
                                 <div class="vote">
+<<<<<<< HEAD
                                     <strong>{{ $question->votes }}</strong> {{ str_plural('vote', $question->votes) }}
                                 </div>                            
                                 <div class="status {{ $question->status }}">
                                     <strong>{{ $question->answers_count }}</strong> {{ str_plural('answer', $question->answers_count) }}
                                 </div>                            
+=======
+                                <strong>{{ $question->votes_count }}</strong> {{ str_plural('vote',$question->votes_count) }}
+                                </div>
+
+                            <div class="status {{ $question->status }}">
+                                    <strong>{{ $question->answers_count }}</strong> {{ str_plural('answer',$question->answers_count) }}
+                                </div>
+
+>>>>>>> lesson-22
                                 <div class="view">
                                     {{ $question->views . " " . str_plural('view', $question->views) }}
                                 </div>                            
